@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Privacy Policy — Pour</title>
+<meta name="description" content="How Pour handles your drink logs, photos, location, and account data." />
+<meta name="theme-color" content="#FAF8F4" />
+<meta name="color-scheme" content="light" />
+<meta name="author" content="Noah Mehrle" />
+<link rel="canonical" href="https://example.com/privacy.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+  :root{
+    --paper:#FAF8F4;--paper-2:#F2EEE7;--ink:#1B1714;--ink-soft:#4A433C;--muted:#6E645A;
+    --accent:#B96E2C;--accent-tint:#B96E2C14;--line:rgba(27,23,20,.08);--line-2:rgba(27,23,20,.14);--maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip-link{position:absolute;left:-999px;top:10px;z-index:200;background:var(--ink);color:var(--paper);
+    padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none}
+  .skip-link:focus{left:12px}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,Segoe UI,Roboto,sans-serif;
+    background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 82%,transparent);
+    backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:680;letter-spacing:-.02em;font-size:19px;color:var(--ink)}
+  .brand:hover{text-decoration:none}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:15px;color:var(--ink-soft);font-weight:480}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:15px;font-weight:560;cursor:pointer}
+  @media(max-width:720px){.nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+    .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.menu-btn{display:block}}
+
+  .doc{max-width:760px;margin:0 auto;padding:56px 24px 30px}
+  .doc .eyebrow{font-size:13px;font-weight:680;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .doc h1{font-size:clamp(34px,6vw,52px);letter-spacing:-.02em;line-height:1.05;margin:14px 0 10px;font-weight:680}
+  .doc .meta{color:var(--muted);font-size:14.5px;margin-bottom:8px}
+  .doc h2{font-size:23px;letter-spacing:-.01em;margin:40px 0 12px;font-weight:660}
+  .doc h3{font-size:18px;margin:24px 0 8px;font-weight:620}
+  .doc p,.doc li{color:var(--ink-soft);font-size:16.5px;margin:0 0 14px}
+  .doc ul{margin:0 0 16px;padding-left:22px}.doc li{margin-bottom:8px}
+  .doc strong{color:var(--ink);font-weight:620}
+  .todo{background:#FFF6E9;border:1px solid #E9C893;border-radius:12px;padding:14px 16px;margin:18px 0;
+    font-size:15px;color:#6b4e1e}
+  .todo b{color:#8a5a12}
+  .toc{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:24px 0 8px}
+  .toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px}
+  .toc a{display:inline-block;font-size:14.5px;margin:3px 14px 3px 0}
+
+  footer.site{border-top:1px solid var(--line);padding:48px 0;margin-top:30px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:13.5px}
+  .foot a{color:var(--ink-soft);margin-left:18px}.foot a:hover{color:var(--ink);text-decoration:none}
+  .foot .links{display:flex;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="dot"></span>Pour</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc" id="main" tabindex="-1">
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: <strong>June 1, 2026</strong> · Last updated: <strong>June 1, 2026</strong></p>
+
+  <div class="todo">
+    <b>In plain terms:</b> your drink journal lives <b>on your device</b>. If you sign in, your entries also sync to Pour's <b>private cloud backend</b> (hosted on Supabase) so they're backed up and can power AI recaps, which are generated with help from our AI provider, <b>Anthropic</b>. We don't sell your data or show ads — the details are below.
+  </div>
+
+  <p>This Privacy Policy explains what information Pour ("Pour", "we", "us") collects, how it is used, and the choices you have. Pour is operated by <strong>Noah Mehrle</strong>. By using Pour you agree to this policy.</p>
+
+  <div class="toc">
+    <h4>Contents</h4>
+    <a href="#summary">Summary</a><a href="#collect">What we collect</a><a href="#store">Where it's stored</a>
+    <a href="#use">How we use it</a><a href="#location">Location</a><a href="#ai">AI features</a>
+    <a href="#sharing">Sharing</a><a href="#payments">Payments</a><a href="#retention">Retention &amp; deletion</a>
+    <a href="#children">Age</a><a href="#rights">Your rights</a><a href="#changes">Changes</a><a href="#contact">Contact</a>
+  </div>
+
+  <h2 id="summary">The short version</h2>
+  <ul>
+    <li>Your drink journal is <strong>yours</strong>. We don't sell it, rent it, or use it for advertising.</li>
+    <li>You can use Pour to log drinks <strong>without an account</strong>; that data stays on your device.</li>
+    <li><strong>Signing in</strong> (with Apple) enables cloud sync, social, and AI features — those send the relevant data to our private backend.</li>
+    <li><strong>Location is opt-in</strong>, added per entry, and never tracked in the background.</li>
+    <li>Purchases are handled by <strong>Apple</strong>. We never see your payment details.</li>
+  </ul>
+
+  <h2 id="collect">Information we collect</h2>
+  <h3>Content you create</h3>
+  <p>The information you put into your journal: drink and maker names (beer, cocktails, wine, non-alcoholic, and so on), tasting notes, ratings, dates, photos you attach, companions or tags you add, and — when you choose to add it — a location for an entry.</p>
+  <h3>Account information</h3>
+  <p>If you sign in, we use <strong>Sign in with Apple</strong>. We receive a stable, app-specific user identifier and, if you allow it, a private relay email address. We never receive your Apple ID password. If you create a profile for social features, we also store the profile details you provide, such as a handle, display name, and avatar.</p>
+  <h3>Information collected automatically</h3>
+  <p>Basic technical data needed to run the service (for example, app version and device type for compatibility, and security/rate-limiting logs on our backend). We rely on Apple's built-in App Analytics and crash reporting and do not use third-party advertising or analytics SDKs.</p>
+
+  <h2 id="store">Where your data is stored</h2>
+  <p><strong>On your device.</strong> Your core journal is stored locally on your iPhone using Apple's on-device database (SwiftData). Photos are saved in the app's local storage.</p>
+  <p><strong>On our backend (when you sign in).</strong> To sync across features, support social sharing, and generate AI recaps, signed-in data is also stored on Pour's private cloud backend, hosted by <strong>Supabase</strong> (our database and storage provider). This includes your pours, attached photos, your profile, companions, and any location pins you add.</p>
+
+  <h2 id="use">How we use your information</h2>
+  <ul>
+    <li>To provide the core journal: saving, displaying, and searching your pours.</li>
+    <li>To sync your data and (if you opt in) power social features.</li>
+    <li>To generate your <strong>Year in Review</strong> and other AI recaps.</li>
+    <li>To process purchases and restore them across your devices (via Apple).</li>
+    <li>To keep the service secure and prevent abuse.</li>
+  </ul>
+  <p>We do <strong>not</strong> use your journal content to serve ads, and we do <strong>not</strong> sell or rent your personal information.</p>
+
+  <h2 id="location">Location</h2>
+  <p>Location is <strong>optional and per-entry</strong>. Pour only accesses your location when you choose to add a place to a drink. We do not track your location in the background. You can deny or revoke location access at any time in iOS Settings → Privacy &amp; Security → Location Services. For any social view, exact coordinates are coarsened before they are shown to other people.</p>
+
+  <h2 id="ai">AI-powered features</h2>
+  <p>When you generate a recap (such as Year in Review), the relevant entries from your journal are sent to our backend and to our AI provider, <strong>Anthropic</strong>, solely to generate the recap text that is returned to you. Under our agreement with our AI provider, the data sent to generate recaps is not used to train their models.</p>
+
+  <h2 id="sharing">How information is shared</h2>
+  <p>We share information only as needed to run Pour:</p>
+  <ul>
+    <li><strong>Service providers (subprocessors)</strong> who host or process data on our behalf — currently our backend/storage provider (Supabase) and our AI provider (Anthropic). We keep this list current as our providers change.</li>
+    <li><strong>Apple</strong>, for sign-in and payments.</li>
+    <li><strong>Other users</strong>, only for content you explicitly choose to share via any social feature.</li>
+    <li><strong>Legal</strong>: if required by law or to protect rights and safety.</li>
+  </ul>
+  <p>We do not sell personal information.</p>
+
+  <h2 id="payments">Payments</h2>
+  <p>Lifetime Pro is a one-time in-app purchase processed entirely by <strong>Apple</strong> through the App Store. We receive confirmation that a purchase or restore occurred, but we never receive or store your card or payment details.</p>
+
+  <h2 id="retention">Data retention &amp; deletion</h2>
+  <p>Local journal data remains on your device until you delete it or remove the app. For data stored on our backend, you may request deletion of your account and associated data at any time. You can delete your account and its data from within the app (Profile → Settings → Delete Account) or by emailing us, and we remove backend data promptly after a deletion request.</p>
+
+  <h2 id="children">Age requirement</h2>
+  <p>Pour is intended for adults of legal drinking age. It is not directed to anyone under <strong>21</strong>, and we do not knowingly collect information from anyone under that age. Pour asks for your date of birth at first launch and blocks anyone under 21.</p>
+
+  <h2 id="rights">Your choices &amp; rights</h2>
+  <p>Depending on where you live, you may have rights to access, correct, export, or delete your personal information. You can exercise these by contacting us at <strong>noah.mehrle2@gmail.com</strong>. If you are in the EU, the UK, or California, you may have additional rights under local law (such as GDPR or CCPA); contact us to exercise them.</p>
+
+  <h2 id="changes">Changes to this policy</h2>
+  <p>We may update this policy from time to time. When we do, we'll revise the "Last updated" date above and, for material changes, provide a more prominent notice. For material changes, we will also notify you in the app.</p>
+
+  <h2 id="contact">Contact us</h2>
+  <p>Questions about privacy? Email <strong>noah.mehrle2@gmail.com</strong>, operated by <strong>Noah Mehrle</strong>.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> Noah Mehrle · Pour</span>
+    <span class="links">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="support.html">Support</a><a href="about.html">About</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var m=document.getElementById('menuBtn'),n=document.getElementById('navLinks');
+  m&&m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);});
+</script>
+</body>
+</html>

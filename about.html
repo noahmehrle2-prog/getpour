@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>About — Pour</title>
+<meta name="description" content="Why Pour exists — a small, personal drink journal built to remember the good ones." />
+<meta name="theme-color" content="#FAF8F4" />
+<meta name="color-scheme" content="light" />
+<meta name="author" content="Noah Mehrle" />
+<link rel="canonical" href="https://example.com/about.html" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+  :root{
+    --paper:#FAF8F4;--paper-2:#F2EEE7;--ink:#1B1714;--ink-soft:#4A433C;--muted:#6E645A;
+    --accent:#B96E2C;--accent-tint:#B96E2C14;--line:rgba(27,23,20,.08);--line-2:rgba(27,23,20,.14);--maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .skip-link{position:absolute;left:-999px;top:10px;z-index:200;background:var(--ink);color:var(--paper);
+    padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none}
+  .skip-link:focus{left:12px}
+  body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,Segoe UI,Roboto,sans-serif;
+    background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 82%,transparent);
+    backdrop-filter:saturate(150%) blur(14px);-webkit-backdrop-filter:saturate(150%) blur(14px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:680;letter-spacing:-.02em;font-size:19px;color:var(--ink)}
+  .brand:hover{text-decoration:none}
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{font-size:15px;color:var(--ink-soft);font-weight:480}.nav-links a:hover{color:var(--ink);text-decoration:none}
+  .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:15px;font-weight:560;cursor:pointer}
+  @media(max-width:720px){.nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;
+    flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
+    .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.menu-btn{display:block}}
+
+  .doc{max-width:680px;margin:0 auto;padding:64px 24px 30px}
+  .doc .eyebrow{font-size:13px;font-weight:680;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .doc h1{font-size:clamp(36px,6.4vw,58px);letter-spacing:-.02em;line-height:1.04;margin:14px 0 22px;font-weight:680;max-width:16ch}
+  .story p{font-size:19px;color:var(--ink-soft);margin-bottom:22px;line-height:1.62}
+  .story p.big{font-size:22px;color:var(--ink);font-weight:460}
+  .story strong{color:var(--ink);font-weight:600}
+  .todo{background:#FFF6E9;border:1px solid #E9C893;border-radius:12px;padding:14px 16px;margin:22px 0;font-size:15px;color:#6b4e1e}
+  .todo b{color:#8a5a12}
+  .pull{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin:30px 0;
+    font-size:23px;line-height:1.4;color:var(--ink);font-weight:480;letter-spacing:-.01em}
+  .sig{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+  .sig .name{font-weight:620;color:var(--ink);font-size:17px}
+  .sig .role{color:var(--muted);font-size:14.5px;margin-top:2px}
+
+  .cta{margin:48px auto 0;max-width:680px;padding:0 24px}
+  .cta-card{background:var(--paper-2);border:1px solid var(--line);border-radius:20px;padding:30px;text-align:center}
+  .cta-card h3{font-size:24px;letter-spacing:-.01em;margin-bottom:8px}
+  .cta-card p{color:var(--ink-soft);margin-bottom:18px}
+  .badge-store{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);
+    padding:11px 18px;border-radius:13px}
+  .badge-store:hover{text-decoration:none;opacity:.92}
+  .badge-store .glyph{font-size:24px;line-height:1}
+  .badge-store .t1{font-size:10px;letter-spacing:.04em;opacity:.85;text-transform:uppercase}
+  .badge-store .t2{font-size:17px;font-weight:600;letter-spacing:-.01em;margin-top:-2px}
+
+  footer.site{border-top:1px solid var(--line);padding:48px 0;margin-top:50px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:13.5px}
+  .foot a{color:var(--ink-soft);margin-left:18px}.foot a:hover{color:var(--ink);text-decoration:none}
+  .foot .links{display:flex;flex-wrap:wrap;align-items:center}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="dot"></span>Pour</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc" id="main" tabindex="-1">
+  <span class="eyebrow">The story</span>
+  <h1>I kept forgetting the good ones.</h1>
+
+  <div class="story">
+    <p class="big">Hi — I'm <strong>Noah</strong>, and I made Pour because I have a terrible memory for the things I enjoy most.</p>
+
+    <p>Someone would ask, "what was that incredible stout you had on the trip?" and I'd have nothing. The bar, the night, the people — all there. The beer, gone. I'd been to a hundred great places and couldn't tell you what I drank at any of them.</p>
+
+    <p>I tried the check-in apps. They wanted me to rate things, chase badges, broadcast every beer to a feed of strangers. That's not why I drink a good beer. I just wanted a quiet place to keep them — like a notebook I'd actually carry.</p>
+
+    <div class="pull">So I built the thing I wanted: a quiet journal for the drinks worth remembering.</div>
+
+    <p>It started with beer — that's still its heart — but Pour now keeps <strong>everything you drink</strong>. A cocktail, a glass of wine, a Sunday-morning non-alcoholic — some of the nights worth remembering don't involve a drop of alcohol at all, and those count too. You log whatever you poured, maybe a photo and a few words, and, if you want, where you were. No followers, no leaderboard, no one watching. Over time it becomes a map of your own good nights, and once a year it hands the whole thing back to you as a recap.</p>
+
+    <p>I'm building it slowly and for the long run. There's no subscription and no plan to sell your memories to anyone — that would defeat the entire point.</p>
+
+    <p>If you keep a Pour, I hope it does for you what it did for me: gives you a way to look back, years later, and remember not just the beer — but the whole night around it.</p>
+
+    <div class="sig">
+      <div class="name">Noah</div>
+      <div class="role">Maker of Pour · Ohio</div>
+    </div>
+  </div>
+</main>
+
+<div class="cta">
+  <div class="cta-card">
+    <h3>Start your own.</h3>
+    <p>Free to log your drinks. Lifetime Pro when you're ready.</p>
+    <!-- TODO: replace href with real App Store link -->
+    <a class="badge-store" href="#" aria-label="Download on the App Store">
+      <span class="glyph"><svg viewBox="0 0 384 512" width="19" height="22" fill="currentColor" aria-hidden="true"><path d="M318.7 268c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.6zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span>
+      <span><span class="t1">Download on the</span><br><span class="t2">App Store</span></span>
+    </a>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap foot">
+    <span>© <span id="yr"></span> Noah Mehrle · Pour</span>
+    <span class="links">
+      <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a href="support.html">Support</a><a href="about.html">About</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var m=document.getElementById('menuBtn'),n=document.getElementById('navLinks');
+  m&&m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);});
+</script>
+</body>
+</html>

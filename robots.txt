@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: replace example.com with your real domain
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://getpour.app/sitemap.xml

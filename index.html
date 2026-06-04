@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Pour — A quiet journal for the drinks you love</title>
-<meta name="description" content="Pour is a private drink journal — beer, cocktails, wine, and non-alcoholic too. Log what you drink, where you drank it, and what it meant. No feeds, no followers — just your own memory." />
+<title>Pour — Your drinks, remembered. Solo or with friends.</title>
+<meta name="description" content="Pour is a social drink journal — and not just for alcohol. Log any pour in two taps — beer, wine, a cocktail, or a coffee, soda, or mocktail — keep it private or share with friends, watch your map fill in, and get AI recaps of your week, month, or year." />
 <meta name="theme-color" content="#FAF8F4" />
 <meta name="color-scheme" content="light" />
 <meta name="author" content="Noah Mehrle" />
-<link rel="canonical" href="https://example.com/" />
+<link rel="canonical" href="https://getpour.app/" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
-<!-- Open Graph (placeholder image) -->
-<meta property="og:title" content="Pour — A quiet journal for the drinks you love" />
-<meta property="og:description" content="Log what you drink — beer, cocktail, or zero-proof — where you drank it, and what it meant. A private drink journal." />
+<!-- Open Graph -->
+<meta property="og:title" content="Pour — Your drinks, remembered. Solo or with friends." />
+<meta property="og:description" content="A social drink journal. Log any pour in two taps, keep it private or share it with friends, watch your map fill in, and get AI recaps of your year." />
 <meta property="og:type" content="website" />
-<!-- TODO: set production URL + a real 1200x630 OG image -->
-<meta property="og:url" content="https://example.com/" />
-<meta property="og:image" content="https://example.com/og-image.png" />
+<meta property="og:url" content="https://getpour.app/" />
+<meta property="og:image" content="https://getpour.app/og-image.png" />
 
 <style>
   :root{
@@ -95,9 +94,9 @@
   .hero{padding:72px 0 40px;position:relative;overflow:hidden}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   .hero h1{margin:18px 0 20px}
-  .hero .lead{max-width:30ch}
+  .hero .lead{max-width:34ch}
   .hero-actions{display:flex;align-items:center;gap:16px;margin-top:30px;flex-wrap:wrap}
-  .hero-note{font-size:13.5px;color:var(--muted);margin-top:18px}
+  .hero-note{font-size:13.5px;color:var(--muted);margin-top:18px;max-width:46ch}
   .hero-glow{position:absolute;inset:-20% -10% auto auto;width:60vw;height:60vw;max-width:680px;max-height:680px;
     background:radial-gradient(circle at 70% 30%,var(--accent-soft)33,transparent 60%);filter:blur(20px);z-index:-1}
   @media(max-width:860px){
@@ -125,20 +124,27 @@
   .screenshot .ss-top{position:absolute;top:54px;left:0;right:0;text-align:center;color:#8a7a63;font-weight:680;letter-spacing:.04em}
   .ss-cards{display:flex;flex-direction:column;gap:10px}
   .ss-card{background:#ffffffcc;border:1px solid rgba(120,90,50,.14);border-radius:14px;padding:11px 12px;
-    text-align:left;box-shadow:0 8px 20px -14px rgba(80,50,20,.4)}
+    text-align:left;box-shadow:0 8px 20px -14px rgba(80,50,20,.4);display:flex;gap:10px;align-items:center}
+  .ss-av{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:linear-gradient(150deg,var(--accent-soft),var(--accent));
+    color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
   .ss-card .b{font-weight:680;color:#3b2f22;font-size:13px}
   .ss-card .s{font-size:11px;color:#8a7a63;margin-top:2px}
   .ss-pin{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin-right:6px}
+  /* Real feed video filling the phone screen */
+  .screen-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#F5EFE6}
+  /* Rounded portrait screenshots used in the feature rows */
+  .shot{display:block;width:100%;height:auto;max-width:286px;margin:0 auto;border-radius:30px;
+    border:1px solid var(--line-2);box-shadow:var(--shadow)}
 
   /* ---------- Sections ---------- */
   section{padding:84px 0}
-  .section-head{max-width:36ch}
+  .section-head{max-width:38ch}
   .section-head h2{margin:14px 0 0}
 
   .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
   .feature.flip .feature-media{order:2}
   .feature-copy h2{margin:14px 0 16px}
-  .feature-copy p{color:var(--ink-soft);font-size:18px;max-width:44ch}
+  .feature-copy p{color:var(--ink-soft);font-size:18px;max-width:46ch}
   .feature-media{display:flex;justify-content:center}
   @media(max-width:860px){
     .feature{grid-template-columns:1fr;gap:28px;padding:44px 0}
@@ -156,13 +162,26 @@
     linear-gradient(165deg,#EEF1EA,#DEE6D7)}
   .tile.map .pin{position:absolute;width:14px;height:14px;border-radius:50% 50% 50% 0;
     background:var(--accent);transform:rotate(-45deg);box-shadow:0 4px 10px -3px rgba(120,70,20,.6)}
+  .tile.map .pin.friend{background:#6E8B5B}
 
-  /* ---------- Year in Review highlight ---------- */
+  /* ---------- Recaps highlight ---------- */
   .yir{background:linear-gradient(180deg,#1F1A16,#15110E);color:var(--paper);border-radius:32px;
     padding:clamp(40px,6vw,76px);position:relative;overflow:hidden;margin:0 auto;max-width:var(--maxw)}
   .yir .eyebrow{color:var(--accent-soft)}
   .yir h2{color:var(--paper);margin:16px 0 18px;max-width:18ch}
-  .yir p{color:#D9D2C9;font-size:19px;max-width:52ch}
+  .yir p{color:#D9D2C9;font-size:19px;max-width:54ch}
+  .yir-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative;z-index:1}
+  .yir-media{display:flex;justify-content:center}
+  .yir-media .shot{max-width:236px;border-color:#ffffff24}
+  /* Recap slideshow */
+  .slideshow{position:relative;width:100%;max-width:236px;margin:0 auto;aspect-ratio:1320/2728}
+  .slideshow .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:30px;
+    border:1px solid #ffffff24;box-shadow:var(--shadow);opacity:0;transition:opacity .9s ease}
+  .slideshow .slide.active{opacity:1}
+  .slide-dots{position:absolute;bottom:-24px;left:0;right:0;display:flex;gap:7px;justify-content:center}
+  .slide-dots span{width:7px;height:7px;border-radius:50%;background:#ffffff3d;transition:background .3s}
+  .slide-dots span.on{background:var(--accent-soft)}
+  @media(max-width:860px){.yir-grid{grid-template-columns:1fr;gap:44px}}
   .yir-stats{display:flex;gap:40px;margin-top:38px;flex-wrap:wrap}
   .yir-stat .n{font-size:clamp(30px,5vw,46px);font-weight:700;letter-spacing:-.02em;color:var(--accent-soft)}
   .yir-stat .l{font-size:13px;color:#A89F94;text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
@@ -173,14 +192,18 @@
 
   /* ---------- Pricing ---------- */
   .price-wrap{display:flex;justify-content:center}
-  .price-card{width:100%;max-width:440px;background:#fff;border:1px solid var(--line-2);border-radius:26px;
+  .price-card{width:100%;max-width:480px;background:#fff;border:1px solid var(--line-2);border-radius:26px;
     padding:38px 34px;box-shadow:var(--shadow);text-align:center}
-  .price-tag{font-size:54px;font-weight:720;letter-spacing:-.03em;margin:6px 0}
-  .price-tag .cur{font-size:28px;vertical-align:super;font-weight:600;margin-right:2px}
-  .price-sub{color:var(--muted);font-size:15px}
-  .price-list{list-style:none;text-align:left;margin:26px 0 30px;display:flex;flex-direction:column;gap:14px}
+  .price-tag{font-size:48px;font-weight:720;letter-spacing:-.03em;margin:6px 0}
+  .price-sub{color:var(--muted);font-size:15px;max-width:34ch;margin:0 auto}
+  .price-divider{height:1px;background:var(--line);margin:26px 0 22px}
+  .price-credits-h{font-size:13px;font-weight:680;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .price-list{list-style:none;text-align:left;margin:0 0 24px;display:flex;flex-direction:column;gap:14px}
   .price-list li{display:flex;gap:12px;align-items:flex-start;font-size:16px;color:var(--ink-soft)}
   .price-list .ck{color:var(--accent);font-weight:700;flex:0 0 auto}
+  .price-list b{color:var(--ink)}
+  .price-rate{font-size:14.5px;color:var(--ink-soft);background:var(--accent-tint);border-radius:12px;padding:12px 14px;margin-bottom:24px}
+  .price-gift{font-size:14.5px;color:var(--ink-soft);background:var(--accent-tint);border-radius:12px;padding:11px 14px;margin-top:16px;text-align:center}
   .price-card .btn-primary{width:100%;justify-content:center}
   .price-foot{font-size:12.5px;color:var(--muted);margin-top:16px}
   .free-note{text-align:center;color:var(--muted);font-size:15px;margin-top:22px}
@@ -211,10 +234,9 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Pour — A quiet journal for the drinks you love" />
-<meta name="twitter:description" content="Log what you drink, where you drank it, and what it meant. A private drink journal." />
-<!-- TODO: real 1200x630 share image -->
-<meta name="twitter:image" content="https://example.com/og-image.png" />
+<meta name="twitter:title" content="Pour — Your drinks, remembered. Solo or with friends." />
+<meta name="twitter:description" content="A social drink journal. Log any pour in two taps, keep it private or share it with friends, and get AI recaps of your year." />
+<meta name="twitter:image" content="https://getpour.app/og-image.png" />
 
 <script type="application/ld+json">
 {
@@ -223,9 +245,9 @@
   "name": "Pour",
   "applicationCategory": "LifestyleApplication",
   "operatingSystem": "iOS",
-  "description": "A private drink journal — log beer, cocktails, wine, and non-alcoholic drinks with the moment around each pour.",
-  "offers": { "@type": "Offer", "price": "9.99", "priceCurrency": "USD" },
-  "url": "https://example.com/"
+  "description": "A social drink journal — log beer, cocktails, wine, and non-alcoholic drinks like coffee and soda, keep them private or share with friends, fill in a map of where you drink, and generate AI recaps. Free to download with credit-based in-app purchases.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://getpour.app/"
 }
 </script>
 </head>
@@ -253,9 +275,9 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow">A private drink journal</span>
-      <h1>The drinks you loved, kept&nbsp;close.</h1>
-      <p class="lead">Log what you're drinking — a hazy IPA, a negroni, a crisp zero-proof — where you are, and what it meant. Pour quietly builds a memory of every pour, just for you.</p>
+      <span class="eyebrow">A social drink journal</span>
+      <h1>The drinks you love — solo, or with friends.</h1>
+      <p class="lead">Two taps to remember any pour: the drink, a photo, a few notes. Keep it private, or share it — follow your friends, watch each other's maps fill in, and look back on the year together. Beer, wine, a cocktail — or a coffee, a soda, a mocktail. It doesn't have to have alcohol in it; if you poured it, Pour keeps it.</p>
       <div class="hero-actions" id="get">
         <!-- TODO: replace href with real App Store link -->
         <a class="badge-store" href="#" aria-label="Download on the App Store">
@@ -264,22 +286,17 @@
         </a>
         <a class="btn" href="about.html" style="color:var(--accent);font-weight:560">Read the story →</a>
       </div>
-      <p class="hero-note">Free to log every drink you pour. Lifetime Pro unlocks Year in Review — a one-time purchase, never a subscription.</p>
+      <p class="hero-note">Free to download — log unlimited pours, add friends, and watch your map fill in for nothing, plus one free recap credit a year. Credits unlock more AI recaps, PDF prints &amp; shareable map images. No subscription.</p>
     </div>
 
     <div class="device-col">
-      <!-- ===== CSS iPhone mockup. Drop a real screenshot into .screen ===== -->
+      <!-- ===== iPhone mockup playing the real feed ===== -->
       <div class="phone" id="heroPhone">
         <div class="screen">
-          <!-- TODO: replace this entire .screenshot block with <img src="screenshots/home.png" alt="Pour home screen"> -->
-          <div class="screenshot">
-            <div class="ss-top">YOUR POURS</div>
-            <div class="ss-cards">
-              <div class="ss-card"><div class="b">Hazy Little Thing</div><div class="s"><span class="ss-pin"></span>Sotto Mare · San Francisco</div></div>
-              <div class="ss-card"><div class="b">Pliny the Elder</div><div class="s"><span class="ss-pin"></span>Russian River · Santa Rosa</div></div>
-              <div class="ss-card"><div class="b">Athletic — Run Wild N/A</div><div class="s"><span class="ss-pin"></span>Back porch · Sunday reset</div></div>
-            </div>
-          </div>
+          <video class="screen-video" autoplay muted loop playsinline
+                 poster="screenshots/feed-poster.jpg" aria-label="Scrolling through the Pour friends feed">
+            <source src="screenshots/feed.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
@@ -291,7 +308,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">What it does</span>
-      <h2>A little ritual after every good pour.</h2>
+      <h2>A pour is a memory. Keep it — or share it.</h2>
     </div>
   </div>
 
@@ -301,61 +318,65 @@
       <div class="feature-copy">
         <span class="eyebrow">Log it</span>
         <h2>Two taps to remember it forever.</h2>
-        <p>The drink, a photo, a few notes, how it hit. Beer, wine, a cocktail, or a craft non-alcoholic — if you poured it, Pour keeps it. A calm, private record of everything you drink, with no scores to chase and no feed to perform for.</p>
+        <p>The drink, a photo, a few notes, how it hit — and rank it if you want to. It doesn't have to have alcohol in it: a beer or a cocktail, sure, but a morning coffee, a soda, or a good mocktail all count just the same. If you poured it, Pour keeps it. Logging stays instant and works offline; the memory lasts.</p>
       </div>
       <div class="feature-media">
-        <!-- TODO: screenshot — the capture / log screen -->
-        <div class="tile"><span class="label">[ Screenshot: logging a drink ]</span></div>
+        <img class="shot" src="screenshots/log.jpg" alt="Logging a new pour in Pour — photo, drink name, and an alcoholic / non-alcoholic toggle" loading="lazy" />
       </div>
     </div>
 
-    <!-- Feature 2: Map -->
+    <!-- Feature 2: Friends / social (the headline) -->
     <div class="feature flip reveal">
       <div class="feature-copy">
-        <span class="eyebrow">Map it</span>
-        <h2>Every pour, pinned to a place.</h2>
-        <p>Add a location to any pour and your map slowly fills in — a personal atlas of taprooms, trips, and back porches. Location is opt-in, one drink at a time.</p>
+        <span class="eyebrow">Share it</span>
+        <h2>Private by default. Social when you want.</h2>
+        <p>Add your friends and your pours become a feed you actually want to open — close friends, not followers. See what they're drinking and where, react to a great pour, and keep groups for your regular crew. It's BeReal for the bar, not a public broadcast: you decide, pour by pour, what's just for you and what you share.</p>
       </div>
       <div class="feature-media">
-        <!-- TODO: screenshot — the map screen -->
-        <div class="tile map">
-          <span class="pin" style="left:28%;top:38%"></span>
-          <span class="pin" style="left:62%;top:30%"></span>
-          <span class="pin" style="left:48%;top:64%"></span>
-          <span class="label" style="position:absolute;bottom:14px">[ Screenshot: your map ]</span>
-        </div>
+        <img class="shot" src="screenshots/feed-poster.jpg" alt="The Pour friends feed — friends' pours with photos, places, and reactions" loading="lazy" />
       </div>
     </div>
 
-    <!-- Feature 3: Remember -->
+    <!-- Feature 3: Map -->
     <div class="feature reveal">
       <div class="feature-copy">
-        <span class="eyebrow">Keep it</span>
-        <h2>Your history, only yours.</h2>
-        <p>Search back through everything — by drink, by place, by the night it belonged to. Pour is a journal, not a network. There's no one to follow and no one following you.</p>
+        <span class="eyebrow">Map it</span>
+        <h2>Every pour drops a pin.</h2>
+        <p>Your map fills in as you go — a personal atlas of taprooms, trips, and back porches, free to build and browse. Connect with friends and you'll see their pins too, so you always know where everyone's drinking. Location is opt-in, one pour at a time. Want to show it off? Turn any trip into a designed, shareable map image with a credit.</p>
       </div>
       <div class="feature-media">
-        <!-- TODO: screenshot — history / detail view -->
-        <div class="tile"><span class="label">[ Screenshot: a saved memory ]</span></div>
+        <img class="shot" src="screenshots/map.jpg" alt="The Pour map with pours pinned across the country, toggling between Mine and Friends" loading="lazy" />
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ YEAR IN REVIEW ============ -->
+<!-- ============ RECAPS ============ -->
 <section>
   <div class="wrap">
     <div class="yir reveal">
       <div class="yir-glow" aria-hidden="true"></div>
-      <span class="eyebrow">Lifetime Pro</span>
-      <h2>Your year, poured back to you.</h2>
-      <p>Every December, Pour turns your year of pours into a warm, personal recap — the places, the people, the ones worth remembering. A quiet look back at a year well spent.</p>
-      <div class="yir-stats">
-        <div class="yir-stat"><div class="n">128</div><div class="l">pours logged</div></div>
-        <div class="yir-stat"><div class="n">31</div><div class="l">places</div></div>
-        <div class="yir-stat"><div class="n">9</div><div class="l">cities</div></div>
+      <div class="yir-grid">
+        <div class="yir-copy">
+          <span class="eyebrow">AI Recaps</span>
+          <h2>Your story, poured back to you.</h2>
+          <p>Turn a week, a month, a whole year — or any stretch you choose — into a warm, written recap of where you went, who you were with, and the pours worth remembering. Keep it to yourself, or share it with the friends who were there. Made the moment you want one.</p>
+          <div class="yir-stats">
+            <div class="yir-stat"><div class="n">128</div><div class="l">pours logged</div></div>
+            <div class="yir-stat"><div class="n">31</div><div class="l">places</div></div>
+            <div class="yir-stat"><div class="n">14</div><div class="l">friends along</div></div>
+          </div>
+          <span class="pro-pill">★ Made with credits</span>
+        </div>
+        <div class="yir-media">
+          <div class="slideshow" aria-label="Example AI recap, slide by slide">
+            <img class="slide active" src="screenshots/recap1.jpg" alt="AI recap slide: how many pours are in the set" loading="lazy" />
+            <img class="slide" src="screenshots/recap2.jpg" alt="AI recap slide: the person you drank with most" loading="lazy" />
+            <img class="slide" src="screenshots/recap3.jpg" alt="AI recap slide: a written story of the stretch of pours" loading="lazy" />
+            <div class="slide-dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div>
+          </div>
+        </div>
       </div>
-      <span class="pro-pill">★ Included with Lifetime Pro</span>
     </div>
   </div>
 </section>
@@ -365,26 +386,30 @@
   <div class="wrap">
     <div class="section-head reveal" style="text-align:center;margin:0 auto 40px">
       <span class="eyebrow">Pricing</span>
-      <h2>Buy it once. Keep it for good.</h2>
+      <h2>Pay as you pour.</h2>
     </div>
     <div class="price-wrap reveal">
       <div class="price-card">
-        <span class="eyebrow">Lifetime Pro</span>
-        <!-- TODO: confirm final price -->
-        <div class="price-tag"><span class="cur">$</span>9.99</div>
-        <div class="price-sub">One-time purchase · not a subscription</div>
+        <div class="price-tag">Free to start</div>
+        <div class="price-sub">Download Pour, log unlimited pours, add friends, and watch your map fill in — free, forever.</div>
+        <div class="price-gift">🎁 <b>One free credit every year</b> — your Year in Review recap is always on us.</div>
+
+        <div class="price-divider"></div>
+
+        <div class="price-credits-h">Credits unlock the extras</div>
         <ul class="price-list">
-          <li><span class="ck">✓</span><span>Everything in Free — unlimited logging (alcoholic or not), notes &amp; photos</span></li>
-          <li><span class="ck">✓</span><span>Year in Review, every year</span></li>
-          <li><span class="ck">✓</span><span>Advanced map &amp; full history</span></li>
-          <li><span class="ck">✓</span><span>Future Pro features, no extra charge</span></li>
+          <li><span class="ck">✓</span><span><b>AI recaps</b> — week, month, year, or any custom range you pick</span></li>
+          <li><span class="ck">✓</span><span><b>PDF export &amp; print</b> — turn your pours into something you can hold</span></li>
+          <li><span class="ck">✓</span><span><b>Shareable map images</b> — turn your map into a designed image of a trip or a year to share</span></li>
         </ul>
+        <div class="price-rate">Credits come in packs — <b>the bigger the pack, the better the rate.</b> One-time purchases, no subscription, and they're yours until you use them.</div>
+
         <!-- TODO: replace href with real App Store link -->
         <a class="btn btn-primary" href="#">Get Pour on the App Store</a>
-        <p class="price-foot">Purchased and restored through the App Store. One-time, non-consumable.</p>
+        <p class="price-foot">Credit packs are one-time in-app purchases through the App Store. Current pack prices are shown in the app.</p>
       </div>
     </div>
-    <p class="free-note">Not ready? The free tier keeps logging your pours for as long as you like.</p>
+    <p class="free-note">Never buy another credit and Pour still works — logging your pours, your map, and keeping up with friends are free for as long as you like.</p>
   </div>
 </section>
 
@@ -394,7 +419,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <a class="brand" href="index.html"><span class="dot"></span>Pour</a>
-        <p>A private journal for the drinks worth remembering. Made for people who keep things, not scores.</p>
+        <p>A drink journal you keep for yourself — or share with friends. Every pour, remembered.</p>
         <div style="margin-top:18px">
           <!-- TODO: replace href with real App Store link -->
           <a class="badge-store" href="#" aria-label="Download on the App Store">
@@ -418,9 +443,8 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <!-- TODO: ENTITY/FOUNDER NAME -->
       <span>© <span id="yr"></span> Noah Mehrle. All rights reserved.</span>
-      <span>Please enjoy responsibly. 21+.</span>
+      <span>Please enjoy responsibly.</span>
     </div>
   </div>
 </footer>
@@ -461,6 +485,19 @@
       phone.style.transform='translateY('+(y*-0.04)+'px) rotateX('+(y*0.006)+'deg)';
     },{passive:true});
   }
+
+  // Recap slideshow — gently cycle the example recap slides
+  (function(){
+    var slides=document.querySelectorAll('.slideshow .slide');
+    var dots=document.querySelectorAll('.slide-dots span');
+    if(slides.length<2||reduce) return;
+    var i=0;
+    setInterval(function(){
+      slides[i].classList.remove('active'); if(dots[i])dots[i].classList.remove('on');
+      i=(i+1)%slides.length;
+      slides[i].classList.add('active'); if(dots[i])dots[i].classList.add('on');
+    },2800);
+  })();
 </script>
 </body>
 </html>

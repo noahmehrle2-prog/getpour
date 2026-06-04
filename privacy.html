@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#FAF8F4" />
 <meta name="color-scheme" content="light" />
 <meta name="author" content="Noah Mehrle" />
-<link rel="canonical" href="https://example.com/privacy.html" />
+<link rel="canonical" href="https://getpour.app/privacy.html" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <style>
   :root{
@@ -33,6 +33,7 @@
   .nav-links{display:flex;align-items:center;gap:26px}
   .nav-links a{font-size:15px;color:var(--ink-soft);font-weight:480}
   .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .nav-cta{font-weight:560;color:var(--accent)!important}
   .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:15px;font-weight:560;cursor:pointer}
   @media(max-width:720px){.nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;
     flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
@@ -70,6 +71,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a class="nav-cta" href="index.html#get">Get Pour</a>
     </nav>
   </div>
 </header>
@@ -104,7 +106,8 @@
 
   <h2 id="collect">Information we collect</h2>
   <h3>Content you create</h3>
-  <p>The information you put into your journal: drink and maker names (beer, cocktails, wine, non-alcoholic, and so on), tasting notes, ratings, dates, photos you attach, companions or tags you add, and — when you choose to add it — a location for an entry.</p>
+  <p>The information you put into your journal: drink and maker names (beer, cocktails, wine, coffee, soda, and other non-alcoholic drinks), tasting notes, ratings, dates, photos you attach, companions or tags you add, and — when you choose to add it — a location for an entry.</p>
+  <p><strong>By default, this content is yours.</strong> If you use Pour without an account, it stays on your device and we never receive it. If you sign in, it syncs to your own private space on our backend so it's backed up and available across your devices — but a pour is only visible to anyone else when <strong>you</strong> choose to share it. Private pours stay private to you.</p>
   <h3>Account information</h3>
   <p>If you sign in, we use <strong>Sign in with Apple</strong>. We receive a stable, app-specific user identifier and, if you allow it, a private relay email address. We never receive your Apple ID password. If you create a profile for social features, we also store the profile details you provide, such as a handle, display name, and avatar.</p>
   <h3>Information collected automatically</h3>
@@ -118,17 +121,22 @@
   <ul>
     <li>To provide the core journal: saving, displaying, and searching your pours.</li>
     <li>To sync your data and (if you opt in) power social features.</li>
-    <li>To generate your <strong>Year in Review</strong> and other AI recaps.</li>
-    <li>To process purchases and restore them across your devices (via Apple).</li>
+    <li>To generate your <strong>AI recaps</strong> — a week, a month, a year, or a custom range you choose.</li>
+    <li>To process credit purchases (via Apple) and keep your credit balance with your account.</li>
     <li>To keep the service secure and prevent abuse.</li>
   </ul>
   <p>We do <strong>not</strong> use your journal content to serve ads, and we do <strong>not</strong> sell or rent your personal information.</p>
 
   <h2 id="location">Location</h2>
-  <p>Location is <strong>optional and per-entry</strong>. Pour only accesses your location when you choose to add a place to a drink. We do not track your location in the background. You can deny or revoke location access at any time in iOS Settings → Privacy &amp; Security → Location Services. For any social view, exact coordinates are coarsened before they are shown to other people.</p>
+  <p>Location is <strong>optional and per-entry</strong>. Pour only accesses your location when you choose to add a place to a drink. We do not track your location in the background. You can deny or revoke location access at any time in iOS Settings → Privacy &amp; Security → Location Services. When you share a pour, its coordinates are coarsened first — rounded to roughly block level (about 110&nbsp;m), enough to show the brewery or neighborhood but not your house. Private pours never send a location to our servers at all.</p>
 
   <h2 id="ai">AI-powered features</h2>
-  <p>When you generate a recap (such as Year in Review), the relevant entries from your journal are sent to our backend and to our AI provider, <strong>Anthropic</strong>, solely to generate the recap text that is returned to you. Under our agreement with our AI provider, the data sent to generate recaps is not used to train their models.</p>
+  <p>Some Pour features use AI to turn your pours into something readable or shareable:</p>
+  <ul>
+    <li><strong>AI recaps</strong> — a written recap of a week, a month, a year, or a theme you type (like &ldquo;beers on the beach&rdquo;). The relevant entries from your journal are sent to generate the recap text returned to you.</li>
+    <li><strong>Shareable map images</strong> — when you design a shareable image of your map, the relevant pours (places, drinks, and dates) are sent to write the map's titles and labels, and a draft image of the map is sent so the AI can check and tidy the layout. (Browsing your own map doesn't involve AI.)</li>
+  </ul>
+  <p>In both cases the data is sent to our backend and to our AI provider, <strong>Anthropic</strong>, solely to produce the result you asked for. Under our agreement with our AI provider, this data is not used to train their models. These features only run when you choose to use them.</p>
 
   <h2 id="sharing">How information is shared</h2>
   <p>We share information only as needed to run Pour:</p>
@@ -141,7 +149,7 @@
   <p>We do not sell personal information.</p>
 
   <h2 id="payments">Payments</h2>
-  <p>Lifetime Pro is a one-time in-app purchase processed entirely by <strong>Apple</strong> through the App Store. We receive confirmation that a purchase or restore occurred, but we never receive or store your card or payment details.</p>
+  <p>Pour is free to download. <strong>Credits</strong> — used for AI recaps, PDF export, and shareable map images — are optional, one-time in-app purchases processed entirely by <strong>Apple</strong> through the App Store. We receive confirmation that a purchase occurred so we can add the credits to your account, but we never receive or store your card or payment details.</p>
 
   <h2 id="retention">Data retention &amp; deletion</h2>
   <p>Local journal data remains on your device until you delete it or remove the app. For data stored on our backend, you may request deletion of your account and associated data at any time. You can delete your account and its data from within the app (Profile → Settings → Delete Account) or by emailing us, and we remove backend data promptly after a deletion request.</p>

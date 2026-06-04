@@ -4,11 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>About — Pour</title>
-<meta name="description" content="Why Pour exists — a small, personal drink journal built to remember the good ones." />
+<meta name="description" content="Why I made Pour — a low-key drink journal for remembering the good ones, alone or with friends. From Noah, the person behind it." />
 <meta name="theme-color" content="#FAF8F4" />
 <meta name="color-scheme" content="light" />
 <meta name="author" content="Noah Mehrle" />
-<link rel="canonical" href="https://example.com/about.html" />
+<link rel="canonical" href="https://getpour.app/about.html" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <style>
   :root{
@@ -32,6 +32,7 @@
   .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-tint)}
   .nav-links{display:flex;align-items:center;gap:26px}
   .nav-links a{font-size:15px;color:var(--ink-soft);font-weight:480}.nav-links a:hover{color:var(--ink);text-decoration:none}
+  .nav-cta{font-weight:560;color:var(--accent)!important}
   .menu-btn{display:none;background:none;border:0;color:var(--ink);font-size:15px;font-weight:560;cursor:pointer}
   @media(max-width:720px){.nav-links{display:none}.nav-links.open{display:flex;position:absolute;top:64px;left:0;right:0;
     flex-direction:column;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 24px 16px}
@@ -47,7 +48,9 @@
   .todo b{color:#8a5a12}
   .pull{border-left:3px solid var(--accent);padding:6px 0 6px 22px;margin:30px 0;
     font-size:23px;line-height:1.4;color:var(--ink);font-weight:480;letter-spacing:-.01em}
-  .sig{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+  .sig{display:flex;align-items:center;gap:16px;margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+  .sig-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:center;flex:0 0 auto;
+    border:1px solid var(--line-2);box-shadow:0 8px 22px -12px rgba(27,23,20,.4)}
   .sig .name{font-weight:620;color:var(--ink);font-size:17px}
   .sig .role{color:var(--muted);font-size:14.5px;margin-top:2px}
 
@@ -78,32 +81,29 @@
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a><a href="about.html">About</a><a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a><a href="terms.html">Terms</a>
+      <a class="nav-cta" href="index.html#get">Get Pour</a>
     </nav>
   </div>
 </header>
 
 <main class="doc" id="main" tabindex="-1">
   <span class="eyebrow">The story</span>
-  <h1>I kept forgetting the good ones.</h1>
+  <h1>Hi — I'm Noah.</h1>
 
   <div class="story">
-    <p class="big">Hi — I'm <strong>Noah</strong>, and I made Pour because I have a terrible memory for the things I enjoy most.</p>
+    <p class="big">I'm the person behind <strong>Pour</strong>. I grew up in Cincinnati and live in Cleveland now. I'm a huge sports fan — I'll turn on just about any game — and I'm driven and entrepreneurial, the type who can strike up a conversation with just about anyone. By day I'm a CPA and a realtor; nights and weekends, I build apps like this one.</p>
 
-    <p>Someone would ask, "what was that incredible stout you had on the trip?" and I'd have nothing. The bar, the night, the people — all there. The beer, gone. I'd been to a hundred great places and couldn't tell you what I drank at any of them.</p>
+    <p>I made Pour because I hated forgetting things. A great drink, who I was with, where we were, what we talked about — the small stuff that turns out to be the stuff worth keeping. And it doesn't have to be alcohol at all: that first can of pop after giving it up for Lent, a morning coffee, a mocktail you'd order again. I just think sharing a drink with someone is one of those quiet places where memories get made, and I wanted a low-key way to hold onto them.</p>
 
-    <p>I tried the check-in apps. They wanted me to rate things, chase badges, broadcast every beer to a feed of strangers. That's not why I drink a good beer. I just wanted a quiet place to keep them — like a notebook I'd actually carry.</p>
+    <div class="pull">Pour isn't really about drinking. It's about remembering.</div>
 
-    <div class="pull">So I built the thing I wanted: a quiet journal for the drinks worth remembering.</div>
+    <p>Two taps saves a pour — the drink, a photo, a few notes. Over time it builds a map of your life and the people in it. Keep it to yourself, or share with friends and see where they've been too.</p>
 
-    <p>It started with beer — that's still its heart — but Pour now keeps <strong>everything you drink</strong>. A cocktail, a glass of wine, a Sunday-morning non-alcoholic — some of the nights worth remembering don't involve a drop of alcohol at all, and those count too. You log whatever you poured, maybe a photo and a few words, and, if you want, where you were. No followers, no leaderboard, no one watching. Over time it becomes a map of your own good nights, and once a year it hands the whole thing back to you as a recap.</p>
-
-    <p>I'm building it slowly and for the long run. There's no subscription and no plan to sell your memories to anyone — that would defeat the entire point.</p>
-
-    <p>If you keep a Pour, I hope it does for you what it did for me: gives you a way to look back, years later, and remember not just the beer — but the whole night around it.</p>
+    <p>If you start a Pour, I hope it gives you a way to look back later and remember the people you were with and the mood of the moment. And even when you're drinking solo, it captures how you were feeling at the time.</p>
 
     <div class="sig">
-      <div class="name">Noah</div>
-      <div class="role">Maker of Pour · Ohio</div>
+      <img class="sig-photo" src="noah.jpg" alt="Noah, the maker of Pour" width="84" height="84" />
+      <div class="name">— Noah</div>
     </div>
   </div>
 </main>
@@ -111,7 +111,7 @@
 <div class="cta">
   <div class="cta-card">
     <h3>Start your own.</h3>
-    <p>Free to log your drinks. Lifetime Pro when you're ready.</p>
+    <p>Free to log your drinks and add friends. Credits unlock the extras when you want them.</p>
     <!-- TODO: replace href with real App Store link -->
     <a class="badge-store" href="#" aria-label="Download on the App Store">
       <span class="glyph"><svg viewBox="0 0 384 512" width="19" height="22" fill="currentColor" aria-hidden="true"><path d="M318.7 268c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-92.6zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg></span>

@@ -50,6 +50,23 @@
   .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);
     font-weight:560;font-size:15.5px;padding:13px 20px;border-radius:13px}
   .btn-primary:hover{background:#332c26;text-decoration:none}
+  button.btn-primary{border:0;cursor:pointer;font-family:inherit}
+  button.btn-primary[disabled]{opacity:.55;cursor:default}
+
+  .form-card{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:26px 24px;margin:28px 0 8px}
+  .form-card h2{font-size:21px;font-weight:660;letter-spacing:-.01em;margin-bottom:4px}
+  .form-card .s{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:13.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px}
+  .field .opt{color:var(--muted);font-weight:400}
+  .field input,.field textarea,.field select{width:100%;font:inherit;font-size:16px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line-2);border-radius:11px;padding:12px 14px}
+  .field textarea{min-height:130px;resize:vertical}
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-tint)}
+  .hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .form-status{font-size:14.5px;margin-top:14px;display:none}
+  .form-status.ok{display:block;color:#2f7d32;font-weight:560}
+  .form-status.err{display:block;color:#b3261e}
 
   .faq{margin-top:36px}
   details{border-top:1px solid var(--line);padding:6px 0}
@@ -97,6 +114,37 @@
     </div>
     <a class="btn-primary" href="mailto:noah.mehrle2@gmail.com?subject=Pour%20Support">Email noah.mehrle2@gmail.com</a>
   </div>
+
+  <form class="form-card" id="contactForm" novalidate>
+    <h2>Or send us a message</h2>
+    <div class="s">Fill this out and it lands straight in our inbox. We usually reply within a day or two.</div>
+    <div class="field">
+      <label for="cf-name">Your name <span class="opt">(optional)</span></label>
+      <input id="cf-name" name="name" type="text" autocomplete="name" />
+    </div>
+    <div class="field">
+      <label for="cf-email">Your email</label>
+      <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+    </div>
+    <div class="field">
+      <label for="cf-topic">Topic</label>
+      <select id="cf-topic" name="topic">
+        <option>General question</option>
+        <option>Help with credits or a purchase</option>
+        <option>Bug report</option>
+        <option>Feature idea</option>
+        <option>Delete my account or data</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="cf-message">Message</label>
+      <textarea id="cf-message" name="message" required placeholder="How can we help?"></textarea>
+    </div>
+    <!-- honeypot: bots fill this in, humans never see it -->
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button class="btn-primary" type="submit" id="cf-submit">Send message</button>
+    <p class="form-status" id="cf-status" role="status" aria-live="polite"></p>
+  </form>
 
   <div class="faq">
     <details open>
@@ -189,6 +237,51 @@
   document.getElementById('yr').textContent=new Date().getFullYear();
   var m=document.getElementById('menuBtn'),n=document.getElementById('navLinks');
   m&&m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);});
+
+  var f=document.getElementById('contactForm');
+  if(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var status=document.getElementById('cf-status'),btn=document.getElementById('cf-submit');
+      var email=document.getElementById('cf-email').value.trim();
+      var message=document.getElementById('cf-message').value.trim();
+      var hp=f.querySelector('input[name="_honey"]');
+      if(hp&&hp.value){return;} // bot tripped the honeypot — silently ignore
+      if(!email||!message){
+        status.className='form-status err';
+        status.textContent='Please add your email and a message.';
+        return;
+      }
+      status.className='form-status';status.textContent='';
+      btn.disabled=true;btn.textContent='Sending…';
+      var topic=document.getElementById('cf-topic').value||'Contact';
+      var payload={
+        name:document.getElementById('cf-name').value.trim(),
+        email:email,
+        topic:topic,
+        message:message,
+        _replyto:email,
+        _subject:'Pour contact: '+topic,
+        _template:'table'
+      };
+      fetch('https://formsubmit.co/ajax/noah.mehrle2@gmail.com',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)
+      }).then(function(r){return r.json();}).then(function(d){
+        if(d&&(d.success===true||d.success==='true')){
+          f.reset();
+          status.className='form-status ok';
+          status.textContent='Thanks — your message is on its way. We’ll reply by email.';
+          btn.textContent='Sent ✓';
+        }else{throw new Error('formsubmit');}
+      }).catch(function(){
+        status.className='form-status err';
+        status.innerHTML='Something went wrong. Please email <a href="mailto:noah.mehrle2@gmail.com">noah.mehrle2@gmail.com</a> directly.';
+        btn.disabled=false;btn.textContent='Send message';
+      });
+    });
+  }
 </script>
 </body>
 </html>

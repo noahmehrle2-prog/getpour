@@ -106,16 +106,18 @@
 
   <h2 id="collect">Information we collect</h2>
   <h3>Content you create</h3>
-  <p>The information you put into your journal: drink and maker names (beer, cocktails, wine, coffee, soda, and other non-alcoholic drinks), tasting notes, ratings, dates, photos you attach, companions or tags you add, and — when you choose to add it — a location for an entry.</p>
+  <p>The information you put into your journal: drink and maker names (beer, cocktails, wine, coffee, soda, and other non-alcoholic drinks), tasting notes, ratings, dates, photos and videos you attach, companions or tags you add, and — when you choose to add it — a location for an entry.</p>
   <p><strong>By default, this content is yours.</strong> If you use Pour without an account, it stays on your device and we never receive it. If you sign in, it syncs to your own private space on our backend so it's backed up and available across your devices — but a pour is only visible to anyone else when <strong>you</strong> choose to share it. Private pours stay private to you.</p>
   <h3>Account information</h3>
-  <p>If you sign in, we use <strong>Sign in with Apple</strong>. We receive a stable, app-specific user identifier and, if you allow it, a private relay email address. We never receive your Apple ID password. If you create a profile for social features, we also store the profile details you provide, such as a handle, display name, and avatar.</p>
+  <p>If you sign in, we use <strong>Sign in with Apple</strong>. We receive a stable, app-specific user identifier and, if you allow it, a private relay email address. We never receive your Apple ID password. We store this email — and a one-way hashed (irreversible) form of it — so that friends who already have your email saved can find you on Pour, and so we can reach you about your account. If you create a profile for social features, we also store the profile details you provide, such as a handle, display name, and avatar.</p>
+  <h3>Contacts (only if you use Find Friends)</h3>
+  <p>If you choose to tap <strong>Find Friends</strong>, Pour reads the email addresses in your contacts, hashes them <strong>on your device</strong>, and sends only those one-way hashes to our backend to match against other Pour users. We don't upload or store your contacts or the raw email addresses themselves, and Find Friends is entirely optional — you can use Pour without it.</p>
   <h3>Information collected automatically</h3>
   <p>Basic technical data needed to run the service (for example, app version and device type for compatibility, and security/rate-limiting logs on our backend). We rely on Apple's built-in App Analytics and crash reporting and do not use third-party advertising or analytics SDKs.</p>
 
   <h2 id="store">Where your data is stored</h2>
   <p><strong>On your device.</strong> Your core journal is stored locally on your iPhone using Apple's on-device database (SwiftData). Photos are saved in the app's local storage.</p>
-  <p><strong>On our backend (when you sign in).</strong> To sync across features, support social sharing, and generate AI recaps, signed-in data is also stored on Pour's private cloud backend, hosted by <strong>Supabase</strong> (our database and storage provider). This includes your pours, attached photos, your profile, companions, and any location pins you add.</p>
+  <p><strong>On our backend (when you sign in).</strong> To sync across features, support social sharing, and generate AI recaps, signed-in data is also stored on Pour's private cloud backend, hosted by <strong>Supabase</strong> (our database and storage provider). This includes your pours, attached photos and videos, your profile, companions, and any location pins you add. When you delete your account, we remove this backend data — including your uploaded photos and videos — from our systems.</p>
 
   <h2 id="use">How we use your information</h2>
   <ul>

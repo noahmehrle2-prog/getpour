@@ -106,7 +106,6 @@
   <h1>How can we help?</h1>
   <p class="lead">A few common questions below. If you don't find your answer, we read every email.</p>
 
-  <!-- TODO: CONTACT EMAIL — used in the mailto link below -->
   <div class="contact-card">
     <div>
       <div class="t">Email support</div>
@@ -237,6 +236,7 @@
   document.getElementById('yr').textContent=new Date().getFullYear();
   var m=document.getElementById('menuBtn'),n=document.getElementById('navLinks');
   m&&m.addEventListener('click',function(){var o=n.classList.toggle('open');m.setAttribute('aria-expanded',o);});
+  n&&n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
 
   var f=document.getElementById('contactForm');
   if(f){

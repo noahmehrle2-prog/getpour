@@ -112,6 +112,8 @@
   <p>If you sign in, we use <strong>Sign in with Apple</strong>. We receive a stable, app-specific user identifier and, if you allow it, a private relay email address. We never receive your Apple ID password. We store this email — and a one-way hashed (irreversible) form of it — so that friends who already have your email saved can find you on Pour, and so we can reach you about your account. If you create a profile for social features, we also store the profile details you provide, such as a handle, display name, and avatar.</p>
   <h3>Contacts (only if you use Find Friends)</h3>
   <p>If you choose to tap <strong>Find Friends</strong>, Pour reads the email addresses in your contacts, hashes them <strong>on your device</strong>, and sends only those one-way hashes to our backend to match against other Pour users. We don't upload or store your contacts or the raw email addresses themselves, and Find Friends is entirely optional — you can use Pour without it.</p>
+  <h3>Voice dictation (only if you use it)</h3>
+  <p>In the memo field you can dictate instead of type. If you use it, Pour records audio through the microphone and transcribes it to text with Apple's speech recognition — performed <strong>on your device</strong> whenever your iPhone supports it. Only the resulting text becomes part of your note; we don't keep the audio, and your voice is never sent to Pour's backend.</p>
   <h3>Information collected automatically</h3>
   <p>Basic technical data needed to run the service (for example, app version and device type for compatibility, and security/rate-limiting logs on our backend). We rely on Apple's built-in App Analytics and crash reporting and do not use third-party advertising or analytics SDKs.</p>
 
@@ -130,7 +132,7 @@
   <p>We do <strong>not</strong> use your journal content to serve ads, and we do <strong>not</strong> sell or rent your personal information.</p>
 
   <h2 id="location">Location</h2>
-  <p>Location is <strong>optional and per-entry</strong>. Pour only accesses your location when you choose to add a place to a drink. We do not track your location in the background. You can deny or revoke location access at any time in iOS Settings → Privacy &amp; Security → Location Services. When you share a pour, its coordinates are coarsened first — rounded to roughly block level (about 110&nbsp;m), enough to show the brewery or neighborhood but not your house. Private pours never send a location to our servers at all.</p>
+  <p>Location is <strong>optional and per-entry</strong>. Pour only accesses your location when you choose to add a place to a drink. We do not track your location in the background. You can deny or revoke location access at any time in iOS Settings → Privacy &amp; Security → Location Services. When you share a pour, its coordinates are coarsened first — rounded to roughly block level (about 110&nbsp;m), enough to show the brewery or neighborhood but not your house. Private pours stay on your device and aren't sent to our backend. One exception applies to weather: whenever you add a place to a drink, Pour looks up the current conditions, which sends <strong>approximate</strong> coordinates (coarsened to ~110&nbsp;m, with no account or identity attached) to a weather provider — Apple WeatherKit, or Open-Meteo as a fallback.</p>
 
   <h2 id="ai">AI-powered features</h2>
   <p>Some Pour features use AI to turn your pours into something readable or shareable:</p>
@@ -143,7 +145,7 @@
   <h2 id="sharing">How information is shared</h2>
   <p>We share information only as needed to run Pour:</p>
   <ul>
-    <li><strong>Service providers (subprocessors)</strong> who host or process data on our behalf — currently our backend/storage provider (Supabase) and our AI provider (Anthropic). We keep this list current as our providers change.</li>
+    <li><strong>Service providers (subprocessors)</strong> who host or process data on our behalf — currently our backend/storage provider (Supabase), our AI provider (Anthropic), and a weather provider (Apple WeatherKit, with Open-Meteo as a fallback) that receives approximate, identity-free coordinates to return current conditions for an entry. We keep this list current as our providers change.</li>
     <li><strong>Apple</strong>, for sign-in and payments.</li>
     <li><strong>Other users</strong>, only for content you explicitly choose to share via any social feature.</li>
     <li><strong>Legal</strong>: if required by law or to protect rights and safety.</li>

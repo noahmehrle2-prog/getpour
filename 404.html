@@ -31,12 +31,31 @@
 </head>
 <body>
 <header><a class="brand" href="index.html"><span class="dot"></span>Pour</a></header>
-<main>
+<main id="main">
   <span class="code">404</span>
   <h1>This page poured out.</h1>
   <p>We couldn't find what you were looking for — but your journal's still right where you left it.</p>
   <a class="btn" href="index.html">Back home</a>
 </main>
+<script>
+// GitHub Pages serves this file for any unknown path. /add/{handle} is a
+// REAL route (friend-invite universal link) — when Pour is installed, iOS
+// intercepts the link and the user never sees this page. When it isn't,
+// render the invite landing instead of a 404.
+(function () {
+  var m = location.pathname.match(/^\/add\/([A-Za-z0-9_.\-]{1,30})\/?$/);
+  if (!m) return;
+  var handle = m[1].toLowerCase();
+  document.title = "@" + handle + " invited you — Pour";
+  var main = document.getElementById("main");
+  main.innerHTML =
+    '<span class="code" style="text-transform:none;letter-spacing:.06em">Memories, not ratings</span>' +
+    '<h1>@' + handle + ' invited you to Pour.</h1>' +
+    '<p>A drink journal for the moments around the drink — who you were with, where you were, what it felt like. No scores, no badges, no ads.</p>' +
+    '<a class="btn" href="https://apps.apple.com/app/id6765697408">Get Pour on the App Store</a>' +
+    '<p style="font-size:14px;color:var(--muted);max-width:40ch">Already have Pour? Open this link on your iPhone and it opens straight in the app — with @' + handle + ' ready to add.</p>';
+})();
+</script>
 <footer>
   <a href="index.html">Home</a> · <a href="support.html">Support</a> ·
   <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a>

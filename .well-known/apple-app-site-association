@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "K98N6H3X49.me.noah.pour",
+        "paths": ["/add/*"],
+        "components": [
+          { "/": "/add/*", "comment": "Friend-invite links: /add/{handle}" }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["K98N6H3X49.me.noah.pour"]
+  }
+}

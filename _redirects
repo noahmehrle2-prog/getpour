@@ -1,6 +1,0 @@
-# Clean URLs — serve the .html pages at extensionless paths (App Store
-# reviewers and shared links sometimes drop the .html).
-/about     /about.html      200
-/support   /support.html    200
-/privacy   /privacy.html    200
-/terms     /terms.html      200

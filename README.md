@@ -1,7 +1,6 @@
 # Pour — Marketing & Legal Site
 
-Static, no-build site for **Pour** — a private journal for the drinks you love (beer, cocktails, wine, **and non-alcoholic**). Plain HTML/CSS/JS; every page is one self-contained file. Deploy to Netlify as-is.
-
+Static, no-build site for **Pour** — a private journal for the drinks you love (beer, cocktails, wine, **and non-alcoholic**). Plain HTML/CSS/JS; every page is one self-contained file. Deploy to 
 ## Files
 | File | Purpose |
 |---|---|
@@ -10,15 +9,11 @@ Static, no-build site for **Pour** — a private journal for the drinks you love
 | `support.html` | Support / FAQ (Apple-required support URL) |
 | `privacy.html` | Privacy Policy |
 | `terms.html` | Terms of Service / EULA |
-| `404.html` | Branded not-found page (Netlify serves it automatically) |
-| `favicon.svg` | Site icon (on-brand amber dot) |
+| `404.html` | Branded not-found page (| `favicon.svg` | Site icon (on-brand amber dot) |
 | `robots.txt` · `sitemap.xml` | SEO / crawler basics |
-| `netlify.toml` | Security headers + caching |
-| `_redirects` | Clean URLs (`/privacy` → `/privacy.html`) |
+| `| `_redirects` | Clean URLs (`/privacy` → `/privacy.html`) |
 
-## Deploy to Netlify
-Drag the `pour-site` folder into Netlify, or connect a repo with **Build command:** *(blank)* and **Publish directory:** `.`. No npm, no framework, no build step. `netlify.toml` + `_redirects` are picked up automatically.
-
+## Deploy to Drag the `pour-site` folder into 
 ---
 
 ## 🔍 Audit pass (done — 2026)
@@ -26,8 +21,7 @@ A full pass added/fixed:
 - **Robustness:** `<noscript>` fallback so the landing page isn't blank with JS off; Apple-logo SVG in the store badges.
 - **Accessibility:** darker `--muted` for WCAG contrast, `:focus-visible` keyboard outlines, a **skip-to-content** link + `<main id="main">` landmark on every page, `aria-expanded`/`aria-controls` on the mobile menu.
 - **SEO:** favicon, per-page `canonical`, `author`/`color-scheme` meta, Twitter Card + JSON-LD (`MobileApplication`) on the landing page, `robots.txt`, `sitemap.xml`.
-- **Infra:** `netlify.toml` security headers (CSP, X-Frame-Options, Referrer-Policy, Permissions-Policy), `_redirects` clean URLs, branded `404.html`.
-
+- **Infra:** `
 > ⚠️ **NEW must-do — set your real domain.** `https://example.com` is now used in several SEO files. Find-replace it everywhere once you have the domain:
 > `grep -rl "example.com" .` → `index.html`, `about/support/privacy/terms.html` (canonical/OG), `robots.txt`, `sitemap.xml`.
 
@@ -80,3 +74,10 @@ Tip: include at least one **non-alcoholic** example in your screenshots so the N
 - [ ] Privacy statements verified against the shipped app
 - [ ] Terms reviewed by counsel
 - [ ] Tested on real iOS Safari + desktop
+
+## Deploy
+GitHub Pages serves this repo directly (CNAME = getpour.app; .nojekyll keeps
+.well-known/ from being dropped by Jekyll). Push to main = deploy.
+Note: no custom security headers (CSP etc.) are enforced on GitHub Pages —
+acceptable for a static brochure site with inlined assets; revisit if the
+site ever handles user input.
